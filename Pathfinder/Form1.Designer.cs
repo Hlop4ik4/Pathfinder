@@ -28,105 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.listBox4 = new System.Windows.Forms.ListBox();
-            this.listBox5 = new System.Windows.Forms.ListBox();
+            this.dataGridViewSkills = new System.Windows.Forms.DataGridView();
+            this.dataGridViewProfessions = new System.Windows.Forms.DataGridView();
+            this.dataGridViewSelectedProfSkills = new System.Windows.Forms.DataGridView();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSkills)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProfessions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSelectedProfSkills)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // dataGridViewSkills
             // 
-            this.button1.Location = new System.Drawing.Point(285, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Показать отличия";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dataGridViewSkills.AllowUserToAddRows = false;
+            this.dataGridViewSkills.AllowUserToDeleteRows = false;
+            this.dataGridViewSkills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSkills.Location = new System.Drawing.Point(12, 12);
+            this.dataGridViewSkills.MultiSelect = false;
+            this.dataGridViewSkills.Name = "dataGridViewSkills";
+            this.dataGridViewSkills.ReadOnly = true;
+            this.dataGridViewSkills.Size = new System.Drawing.Size(274, 476);
+            this.dataGridViewSkills.TabIndex = 0;
             // 
-            // listBox1
+            // dataGridViewProfessions
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "Список профессий"});
-            this.listBox1.Location = new System.Drawing.Point(516, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 251);
-            this.listBox1.TabIndex = 1;
+            this.dataGridViewProfessions.AllowUserToAddRows = false;
+            this.dataGridViewProfessions.AllowUserToDeleteRows = false;
+            this.dataGridViewProfessions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProfessions.Location = new System.Drawing.Point(699, 12);
+            this.dataGridViewProfessions.MultiSelect = false;
+            this.dataGridViewProfessions.Name = "dataGridViewProfessions";
+            this.dataGridViewProfessions.ReadOnly = true;
+            this.dataGridViewProfessions.Size = new System.Drawing.Size(274, 476);
+            this.dataGridViewProfessions.TabIndex = 0;
+            this.dataGridViewProfessions.DoubleClick += new System.EventHandler(this.dataGridViewProfessions_DoubleClick);
             // 
-            // listBox2
+            // dataGridViewSelectedProfSkills
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Items.AddRange(new object[] {
-            "Навыки выбранной",
-            "профессии"});
-            this.listBox2.Location = new System.Drawing.Point(390, 12);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(120, 251);
-            this.listBox2.TabIndex = 2;
+            this.dataGridViewSelectedProfSkills.AllowUserToAddRows = false;
+            this.dataGridViewSelectedProfSkills.AllowUserToDeleteRows = false;
+            this.dataGridViewSelectedProfSkills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSelectedProfSkills.Location = new System.Drawing.Point(419, 12);
+            this.dataGridViewSelectedProfSkills.MultiSelect = false;
+            this.dataGridViewSelectedProfSkills.Name = "dataGridViewSelectedProfSkills";
+            this.dataGridViewSelectedProfSkills.ReadOnly = true;
+            this.dataGridViewSelectedProfSkills.Size = new System.Drawing.Size(274, 476);
+            this.dataGridViewSelectedProfSkills.TabIndex = 0;
             // 
-            // listBox3
+            // buttonSearch
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Items.AddRange(new object[] {
-            "Ваш список навыков"});
-            this.listBox3.Location = new System.Drawing.Point(138, 12);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(120, 251);
-            this.listBox3.TabIndex = 2;
-            // 
-            // listBox4
-            // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.Items.AddRange(new object[] {
-            "Список навыков, из",
-            "которых можно",
-            "выбрать те, которые",
-            "подходят Вам"});
-            this.listBox4.Location = new System.Drawing.Point(12, 12);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(120, 251);
-            this.listBox4.TabIndex = 2;
-            // 
-            // listBox5
-            // 
-            this.listBox5.FormattingEnabled = true;
-            this.listBox5.Items.AddRange(new object[] {
-            "Отличия в качестве",
-            "навыков выбранной",
-            "професии и навыков,",
-            "выбранных Вами"});
-            this.listBox5.Location = new System.Drawing.Point(264, 68);
-            this.listBox5.Name = "listBox5";
-            this.listBox5.Size = new System.Drawing.Size(120, 199);
-            this.listBox5.TabIndex = 2;
+            this.buttonSearch.Location = new System.Drawing.Point(292, 12);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(121, 81);
+            this.buttonSearch.TabIndex = 1;
+            this.buttonSearch.Text = "Найти";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 274);
-            this.Controls.Add(this.listBox4);
-            this.Controls.Add(this.listBox3);
-            this.Controls.Add(this.listBox5);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(984, 500);
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.dataGridViewSelectedProfSkills);
+            this.Controls.Add(this.dataGridViewProfessions);
+            this.Controls.Add(this.dataGridViewSkills);
             this.Name = "Form1";
             this.Text = "Главная";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSkills)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProfessions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSelectedProfSkills)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.ListBox listBox4;
-        private System.Windows.Forms.ListBox listBox5;
+        private System.Windows.Forms.DataGridView dataGridViewSkills;
+        private System.Windows.Forms.DataGridView dataGridViewProfessions;
+        private System.Windows.Forms.DataGridView dataGridViewSelectedProfSkills;
+        private System.Windows.Forms.Button buttonSearch;
     }
 }
 
