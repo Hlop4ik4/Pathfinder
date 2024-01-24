@@ -24,29 +24,37 @@ namespace Pathfinder
             InitializeComponent();
         }
 
-        private void listBox4_DoubleClick(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             ConnectionString = @"Data Source=" + sPath + ";New=False;Version=3";
             string selectCommand = "Select * from skill";
-            SelectTableSkills(ConnectionString, selectCommand);
+            SelectTable(ConnectionString, selectCommand, dataGridViewSkills);
         }
 
-        private void SelectTableSkills(string conString, string selectCmd)
+        private void SelectTableProfSkills(string conString, string selectCmd, DataGridView dataGridView)
         {
             SQLiteConnection connect = new SQLiteConnection(conString);
             connect.Open();
             SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(selectCmd, connect);
             DataSet ds = new DataSet();
             dataAdapter.Fill(ds);
-            dataGridViewSkills.DataSource = ds;
-            dataGridViewSkills.DataMember = ds.Tables[0].ToString();
-            dataGridViewSkills.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewSkills.Columns[0].Visible = false;
+            dataGridView.DataSource = ds;
+            dataGridView.DataMember = ds.Tables[0].ToString();
+            dataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            connect.Close();
+        }
+
+        private void SelectTable(string conString, string selectCmd, DataGridView dataGridView)
+        {
+            SQLiteConnection connect = new SQLiteConnection(conString);
+            connect.Open();
+            SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(selectCmd, connect);
+            DataSet ds = new DataSet();
+            dataAdapter.Fill(ds);
+            dataGridView.DataSource = ds;
+            dataGridView.DataMember = ds.Tables[0].ToString();
+            dataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView.Columns[0].Visible = false;
             connect.Close();
         }
 
@@ -55,22 +63,8 @@ namespace Pathfinder
             if(dataGridViewSkills.CurrentRow != null)
             {
                 string selectCommand = $"select p.* from Profession p join skill_profession sp on p.profId = sp.profId where sp.skillid in (select skillId from skill s where s.level <= {dataGridViewSkills.CurrentRow.Cells[2].Value} and name = '{dataGridViewSkills.CurrentRow.Cells[1].Value}')";
-                SelectTableProfessions(ConnectionString, selectCommand);
+                SelectTable(ConnectionString, selectCommand, dataGridViewProfessions);
             }
-        }
-
-        private void SelectTableProfessions(string conString, string selectCmd)
-        {
-            SQLiteConnection connect = new SQLiteConnection(conString);
-            connect.Open();
-            SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(selectCmd, connect);
-            DataSet ds = new DataSet();
-            dataAdapter.Fill(ds);
-            dataGridViewProfessions.DataSource = ds;
-            dataGridViewProfessions.DataMember = ds.Tables[0].ToString();
-            dataGridViewProfessions.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewProfessions.Columns[0].Visible = false;
-            connect.Close();
         }
 
         private void dataGridViewProfessions_DoubleClick(object sender, EventArgs e)
@@ -78,21 +72,8 @@ namespace Pathfinder
             if (dataGridViewProfessions.CurrentRow != null)
             {
                 string selectCommand = $"select s.name, s.level from skill_profession sp join Skill s on sp.skillId = s.skillId where sp.profid = {dataGridViewProfessions.CurrentRow.Cells[0].Value}";
-                SelectTableSelectedProfSkills(ConnectionString, selectCommand);
+                SelectTableProfSkills(ConnectionString, selectCommand, dataGridViewSelectedProfSkills);
             }
-        }
-
-        private void SelectTableSelectedProfSkills(string conString, string selectCmd)
-        {
-            SQLiteConnection connect = new SQLiteConnection(conString);
-            connect.Open();
-            SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(selectCmd, connect);
-            DataSet ds = new DataSet();
-            dataAdapter.Fill(ds);
-            dataGridViewSelectedProfSkills.DataSource = ds;
-            dataGridViewSelectedProfSkills.DataMember = ds.Tables[0].ToString();
-            dataGridViewSelectedProfSkills.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            connect.Close();
         }
     }
 }
