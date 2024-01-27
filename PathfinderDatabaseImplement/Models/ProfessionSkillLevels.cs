@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace PathfinderDatabaseImplement.Models
 {
-    internal class ProfessionSkillLevels
+    public class ProfessionSkillLevels
     {
+        public int Id { get; set; }
+
+        public int ProfessionId { get; set; }
+
+        public int SkillLevelId { get; set; }
+
+        public virtual Profession Profession { get; set; }
+
+        public virtual SkillLevel SkillLevel { get; set; }
     }
 }
