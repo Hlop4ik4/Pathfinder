@@ -1,4 +1,5 @@
-﻿using PathfinderContracts.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using PathfinderContracts.Models;
 using PathfinderDatabaseImplement.Models;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,9 @@ namespace PathfinderDatabaseImplement.Implements
         {
             using var context = new PathfinderDatabase();
             return context.SkillLevels
-            .Select(CreateModel)
-            .ToList();
+                .Include(rec => rec.Skill)
+                .Select(CreateModel)
+                .ToList();
         }
 
         public SkillLevelViewModel GetElement(int id)
@@ -72,6 +74,7 @@ namespace PathfinderDatabaseImplement.Implements
             {
                 Id = skillLevel.Id,
                 SkillId = skillLevel.SkillId,
+                SkillName = skillLevel.Skill.Name,
                 Level = skillLevel.Level
             };
         }

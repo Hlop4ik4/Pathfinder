@@ -12,6 +12,8 @@ namespace PathfinderContracts.Models
 
         public int SkillId { get; set; }
 
+        public string SkillName { get; set; }
+
         public int Level { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PathfinderDatabaseImplement;
 
@@ -10,9 +11,11 @@ using PathfinderDatabaseImplement;
 namespace PathfinderDatabaseImplement.Migrations
 {
     [DbContext(typeof(PathfinderDatabase))]
-    partial class PathfinderDatabaseModelSnapshot : ModelSnapshot
+    [Migration("20240128173439_fixSkillLevel")]
+    partial class fixSkillLevel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

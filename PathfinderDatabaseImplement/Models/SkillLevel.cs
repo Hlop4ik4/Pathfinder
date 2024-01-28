@@ -20,5 +20,7 @@ namespace PathfinderDatabaseImplement.Models
 
         [ForeignKey("SkillLevelId")]
         public virtual List<EmployeeSkillLevels> EmployeeSkillLevels { get; set; }
+
+        public virtual Skill Skill { get; set; }
     }
 }

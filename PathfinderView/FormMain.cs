@@ -16,5 +16,19 @@ namespace PathfinderView
         {
             InitializeComponent();
         }
+
+        private void SkillsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new FormSkills();
+
+            form.ShowDialog();
+        }
+
+        private void SkillLevelsНавыковToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new FormSkillLevels();
+
+            form.ShowDialog();
+        }
     }
 }

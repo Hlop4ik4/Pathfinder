@@ -95,6 +95,7 @@
             this.SkillLevelsНавыковToolStripMenuItem.Name = "SkillLevelsНавыковToolStripMenuItem";
             this.SkillLevelsНавыковToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.SkillLevelsНавыковToolStripMenuItem.Text = "Уровни навыков";
+            this.SkillLevelsНавыковToolStripMenuItem.Click += new System.EventHandler(this.SkillLevelsНавыковToolStripMenuItem_Click);
             // 
             // FormMain
             // 
