@@ -99,6 +99,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PathfinderDatabaseImplement\PathfinderDatabaseImplement.csproj">
+      <Project>{3bb6f121-79a4-4272-883a-231a929f07ec}</Project>
+      <Name>PathfinderDatabaseImplement</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
